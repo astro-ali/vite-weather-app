@@ -40,7 +40,7 @@ const DayInWeeKCard = ({ index, data }) => {
       className="bg-white text-black w-fit text-center px-5 py-4 rounded-3xl shadow-sm"
     >
       <h5 className="font-medium text-blue-700">{getDay(data.dt)}</h5>
-      <div className="weather-image flex items-center justify-center">
+      <div className="weather-image flex items-center justify-center mb-3">
         <img
           src={`/images/weather-conditions/${
             weatherconditionsMap[weather.main]
