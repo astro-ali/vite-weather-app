@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { isMobile } from "react-device-detect";
 import "./App.css";
 import LoadingPage from "./components/LoadingPage";
 import Main from "./components/Main";
@@ -12,22 +13,27 @@ function App() {
 
   useEffect(() => {
     if ("geolocation" in navigator) {
-      // mockup timeout, it's not nessery
       navigator.geolocation.getCurrentPosition(async (position) => {
         setGeoInfo({
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         });
-        const res = await WeatherService({
+        WeatherService({
           url: `/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}`,
           method: "get",
-        });
-        const forcastRes = await WeatherService({
+        })
+          .then((res) => {
+            setData(res.data);
+          })
+          .catch((err) => console.log({ err }));
+        WeatherService({
           url: `/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}`,
           method: "get",
-        });
-        setData(res.data);
-        setForcast(forcastRes.data);
+        })
+          .then((res) => {
+            setForcast(res.data);
+          })
+          .catch((err) => console.log({ err }));
       });
     } else {
       console.log("Not Available");
@@ -39,12 +45,14 @@ function App() {
   }, [geoInfo]);
 
   return (
-    <>
+    <div className={geoInfo && data && forcast ? "" : "overflow-hidden"}>
       {geoInfo && data && forcast ? (
         <div className="flex bg-weathergray-100">
-          <div className="bg-white shadow-sm" style={{ width: "440px" }}>
-            <Sidebar data={data} />
-          </div>
+          {!isMobile && (
+            <div className="bg-white shadow-sm" style={{ width: "440px" }}>
+              <Sidebar data={data} />
+            </div>
+          )}
           <div className="w-full">
             <Main data={data} forcast={forcast} />
           </div>
@@ -52,7 +60,7 @@ function App() {
       ) : (
         <LoadingPage />
       )}
-    </>
+    </div>
   );
 }
 

@@ -9,6 +9,12 @@ module.exports = {
         },
       },
     },
+    screens: {
+      xs: "432px",
+      sm: "532px",
+      md: "768px",
+      lg: "992px",
+      xl: "1280px",
+    },
   },
-  // plugins: [require("daisyui")],
 };

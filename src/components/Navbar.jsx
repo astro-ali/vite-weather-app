@@ -4,7 +4,7 @@ import TabNavigator from "./TabNavigator";
 
 const Navbar = () => {
   return (
-    <div className="navbar flex items-center justify-between w-full">
+    <div className="navbar flex items-center justify-between w-full ">
       <TabNavigator />
       <AccountAvatar />
     </div>

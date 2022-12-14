@@ -1,5 +1,4 @@
 import React from "react";
-import { BiCloud } from "react-icons/bi";
 import { RiWindyFill } from "react-icons/ri";
 import { WiHumidity } from "react-icons/wi";
 

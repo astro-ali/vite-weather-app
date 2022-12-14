@@ -39,7 +39,9 @@ const DayInWeeKCard = ({ index, data }) => {
       key={index}
       className="bg-white text-black w-fit text-center px-5 py-4 rounded-3xl shadow-sm"
     >
-      <h5 className="font-medium text-blue-700">{getDay(data.dt)}</h5>
+      <h5 className="font-medium text-blue-700 mb-3 md:mb-1">
+        {getDay(data.dt)}
+      </h5>
       <div className="weather-image flex items-center justify-center mb-3">
         <img
           src={`/images/weather-conditions/${
@@ -50,7 +52,10 @@ const DayInWeeKCard = ({ index, data }) => {
           width="100px"
         />
       </div>
-      <p>{renderTemp(main.feels_like, tempType)}&#xb0; </p>
+      <p>
+        {renderTemp(main.feels_like, tempType)} &#xb0;
+        {tempType === "c" ? "C" : "F"}{" "}
+      </p>
     </div>
   );
 };
