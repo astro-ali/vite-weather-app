@@ -16,8 +16,6 @@ const LoadingPage = () => {
           loading={true}
           cssOverride={override}
           size={isMobile ? 100 : 180}
-          aria-label="Loading Spinner"
-          data-testid="loader"
         />
         <h1 className="text-lg md:text-2xl px-7 sm:px-0 text-blue-700 text-center">
           Loading Your Geo information, Just a Few Seconds...

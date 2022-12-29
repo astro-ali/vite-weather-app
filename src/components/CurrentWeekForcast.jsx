@@ -1,9 +1,7 @@
 import React from "react";
 import DayInWeeKCard from "./DayInWeeKCard";
 
-const CurrentWeekForcast = ({ forcast }) => {
-  const { list } = forcast;
-
+const CurrentWeekForcast = () => {
   return (
     <>
       <div className="mb-8 mt-12 md:mt-0">
@@ -12,8 +10,8 @@ const CurrentWeekForcast = ({ forcast }) => {
         </h1>
       </div>
       <div className="flex flex-wrap md:flex-nowrap gap-7 justify-around mb-8 md:mb-20">
-        {[0, 1, 2, 3, 4, 5, 6, 7].map((item) => {
-          return <DayInWeeKCard key={item} index={item} data={list[item]} />;
+        {[1, 2, 3, 4, 5, 6, 7].map((item) => {
+          return <DayInWeeKCard key={item} />;
         })}
       </div>
     </>

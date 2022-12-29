@@ -21,7 +21,6 @@ ul {
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
-  /* overflow: hidden; */
 }
 
 .custom-scroll:hover::-webkit-scrollbar {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import AccountAvatar from "./AccountAvatar";
 import TabNavigator from "./TabNavigator";
 
